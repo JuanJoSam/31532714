@@ -106,7 +106,7 @@ footer {
     background-color: white;
     border-radius: 15px; 
     overflow: hidden; 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 1px 15px var(--grey-100); 
     display: flex; 
     flex-direction: column; 
     margin: 10px 30px; 
@@ -221,6 +221,16 @@ a:active {
     font-style: normal;
 }
 
-li div {
+.listado_perfiles {
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.listado_perfiles:hover {
     cursor: pointer;
+    transform: rotate(5deg) scale(1.1);
+}
+
+.listado_perfiles:hover .superpuesto {
+    border-color: var(--accent-color);
 }
