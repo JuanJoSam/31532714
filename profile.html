@@ -6,73 +6,34 @@
     <link rel="icon" sizes="32x32" href="/reto1/icon/cropped-logonuevo-32x32.png">
     <link rel="icon" sizes="192x192" href="/reto1/icon/cropped-logonuevo-192x192.png">
     <link rel="stylesheet" href="/reto1/css/_theme.css">
+    <link rel="stylesheet" href="/reto1/css/style.css">
     <title>Juan Belisario</title>
-
-    <style>
-        body{
-            background-color: var(--grey-100);
-        }
-
-        p {
-            font-style: italic;
-            font: smaller;
-            font-size: 14px;
-        }
-
-        h1 {
-            font-size: 28px;
-            color: var(--main-color);
-        }
-
-        article, table {
-            font-size: 15px;
-        }
-
-        #derecha {
-            margin: 1px 20px;
-        }
-
-        #izquierda {
-            border-right: 5px solid;
-            border-color: var(--main-color);
-            border-radius: 0 0 70px 0;
-            position: relative;
-        }
-
-        #izquierda2 {
-            background-color: var(--main-color);
-        }
-
-        .contenedor {
-            display: flex;
-            justify-content: space-between;
-            background-color: #ffffff;
-            width: 1000px;
-            height: 455px;
-            box-shadow: 0 4px 10px var(--grey-400);
-            font-family: var(--primary-font), var(--condensed-font), var(--flex-font);
-        }
-
-        a:active {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-    </style>
     
 </head>
 <body>
     <header>
-
+        <nav>
+            <ul>
+                <li><h1 id = "logo">ATI<span>[UCV]</span>Log</h1></li>
+                <li>
+                    <form id = "formulario">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre...">
+                        <button>Buscar</button>
+                    </form>
+                </li>
+                <li id = "profile"><img src="/reto1/icon/userIcon.svg" alt = "icon"></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class = "contenedor">
+    <div class = "contenedorprofile">
         
         <section id = "izquierda2">
             <img src="/31532714.jpg" alt="Juan Belisario" id = "izquierda"> 
         </section>
         
         <section id = "derecha">
-            <h1><b>Juan Belisario</b></h1>
+            <h1 id = "name_profile"><b>Juan Belisario</b></h1>
             <p>
                 Soy estudiante de Ciencias de la Computación en la UCV que combina la precisión de los algoritmos y problemas matemáticos semi-complejos con una notable versatilidad en lenguajes que van desde el bajo nivel en C hasta la lógica pura de Python. Equilibro mi formación académica con una pasión activa por el fútbol internacional (siguiendo de cerca a clubes como Barcelona o el Chelsea) y una curiosidad constante por el rendimiento del hardware moderno. Actualmente, me encuentro en un punto estratégico de mi carrera, comenzando el sexto semestre, gestionando con pragmatismo mi carga académica y evaluando especializaciones en áreas como la Computación Gráfica o las Bases de Datos para definir mi futuro profesional.
             </p>
@@ -105,7 +66,9 @@
     </div>
     
     <footer>
-
+        <article>
+            Copyright © 2026 Escuela de computación - ATI. Todos los derechos reservados
+        </article>
     </footer>
 </body>
 </html>
