@@ -1,3 +1,5 @@
+@import "_theme.css";
+
 body {
     background-color: var(--grey-50);
     font-family: var(--primary-font), var(--condensed-font), var(--flex-font);
@@ -233,4 +235,9 @@ a:active {
 
 .listado_perfiles:hover .superpuesto {
     border-color: var(--accent-color);
+    transition: border-color 0.5s ease;
+}
+
+#description {
+    font-family: Helvetica, Helvetica, sans-serif;
 }
