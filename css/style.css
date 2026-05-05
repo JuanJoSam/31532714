@@ -84,7 +84,7 @@ nav ul li:last-child {
 footer {
     background-color: var(--grey-50);
     padding: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-top: 2px solid var(--grey-200);
     align-items: center;
     justify-content: center;
@@ -135,6 +135,7 @@ footer {
     justify-content: center; 
     border-bottom: 12px solid var(--main-color);
     box-sizing: border-box; 
+    transition: border-color 0.3s ease-in-out;
 }
 
 .superpuesto p {
@@ -147,12 +148,12 @@ footer {
 
 .contenedor ul {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px; 
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 1000px; 
+    max-width: 1245px; 
 }
 
 .contenedor ul li {
@@ -204,11 +205,21 @@ article, table {
     padding-left: 5px;
 }
 
+#juan_redireccionar {
+    text-decoration: none; 
+    color: inherit;
+}
+
+.menu_principal {
+    text-decoration: none; 
+    color: inherit;
+}
+
 .contenedorprofile {
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
-    width: 1000px;
+    width: 1245px;
     height: 455px;
     box-shadow: 0 4px 10px var(--grey-400);
     font-family: var(--primary-font), var(--condensed-font), var(--flex-font);
@@ -226,6 +237,7 @@ a:active {
 .listado_perfiles {
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
+    margin-bottom: 50px;
 }
 
 .listado_perfiles:hover {
@@ -235,9 +247,9 @@ a:active {
 
 .listado_perfiles:hover .superpuesto {
     border-color: var(--accent-color);
-    transition: border-color 0.5s ease;
 }
 
 #description {
-    font-family: Helvetica, Helvetica, sans-serif;
+    /*font-family: Helvetica, Helvetica, sans-serif;*/
+    font-weight: 300;
 }
