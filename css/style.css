@@ -4,6 +4,9 @@ body {
     background-color: var(--grey-50);
     font-family: var(--primary-font), var(--condensed-font), var(--flex-font);
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -33,6 +36,8 @@ nav ul {
     background-color: var(--accent-color);
     padding: 5px 10px;
     border-radius: 100%;
+    margin-left: 290px;
+    margin-top: 20px;
 }
 
 #formulario {
@@ -190,7 +195,7 @@ article, table {
     margin: 1px 20px;
 }
 
-#izquierda {
+.izquierda_movil, .izquierda_pc {
     border-right: 5px solid;
     border-color: var(--main-color);
     border-radius: 0 0 70px 0;
@@ -206,6 +211,8 @@ article, table {
 }
 
 #juan_redireccionar {
+    display: contents;
+    width: 100%;
     text-decoration: none; 
     color: inherit;
 }
@@ -221,6 +228,7 @@ article, table {
     background-color: #ffffff;
     width: 1245px;
     height: 455px;
+    flex: 1;
     box-shadow: 0 4px 10px var(--grey-400);
     font-family: var(--primary-font), var(--condensed-font), var(--flex-font);
 }
@@ -252,4 +260,194 @@ a:active {
 #description {
     /*font-family: Helvetica, Helvetica, sans-serif;*/
     font-weight: 300;
+}
+
+#menu {
+    display: none;
+}
+
+.juan_pc, .juan_movil {
+    object-fit: cover;
+}
+
+.juan_pc, .izquierda_pc {
+    display: none;
+}
+
+@media (min-width: 320px) and (max-width: 769px) {
+    * {
+        box-sizing: border-box;
+    }
+    .izquierda_movil {
+        width: 100vw;
+    }
+    header {
+        padding-bottom: 0px;
+        height: 100%;
+    }
+    #logo {
+        font-size: 2em;
+        margin: 1px 0px 0px 5px;
+    }
+    #logo span {
+        font-size: 0.5em;
+    }
+    #formulario, #profile {
+        display: none;
+    }
+    .contenedorprofile {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        margin: auto;
+    }
+    footer {
+        flex-direction: column;
+        padding-top: 1.5em;
+        border-top: 3px solid var(--grey-200);
+    }
+    footer article {
+        font-size: 0.5em;
+        text-align: center;
+    }
+    #description {
+        width: 95vw;
+        font-size: 0.8em;
+    }
+    #tabla_profile {
+        width: 95vw;
+        font-size: 0.8em;
+    }
+    #contacto {
+        width: 95vw;
+        font-size: 0.8em;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+    #menu {
+        display: flex;
+        margin: 0px 7px 0px 0px;
+        margin-left: auto;
+        width: 30px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+    .principal h1 {
+        font-size: 1.5em;
+        padding-left: 0.6em;
+    }
+    .contenedor ul {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .listado_perfiles {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .tarjeta {
+        width: 100%; 
+        height: 240px; 
+        margin: 0; 
+    }
+    .tarjeta img {
+        height: 150px;
+        object-fit: cover;
+    }
+    .superpuesto {
+        height: 90px;
+        border-bottom-width: 8px; 
+    }
+    .superpuesto p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    nav ul {
+        display: flex;
+        width: 100%; 
+        justify-content: space-between; 
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    nav ul li:last-child {
+        margin-right: 15px; 
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1201px) {
+    .contenedorprofile {
+        width: 100vw;
+        height: auto;
+        display: flex;
+    }
+    #izquierda2 {
+        display: flex;
+    }
+    .izquierda_pc, .izquierda_movil {
+        height: 100%;
+        width: 350px;
+    }
+    #logo {
+        font-size: 3em;
+        margin: 5px 0 0px 15px;
+    }
+    #formulario {
+        margin: auto;
+        margin-left: 6vw;
+        margin-top: 0.5em;
+        width: 50vw;
+    }
+    #contacto {
+        margin-top: 1.1em;
+        margin-bottom: 1.4em;
+    }
+    #name_profile {
+        font-size: 2.5em;
+    }
+    #profile {
+        margin-left: auto;
+        margin-right: 10px;
+        margin-top: 0.5em;
+    }
+    header {
+        padding-bottom: 0.5em;
+        height: 100%;
+    }
+    footer {
+        width: auto;
+        margin-top: 20em;
+    }
+    .contenedor ul {
+        grid-template-columns: repeat(2, 1fr); 
+    } 
+    .listado_perfiles {
+        width: 20em;
+        margin-bottom: 20px;
+    }
+    .juan_movil, .juan_pc {
+        object-fit: cover;
+    }
+    @media (min-width: 1025px) and (max-width: 1201px) {
+        #description, #tabla_profile, #contacto {
+            font-size: 1.2em;
+        }
+        .contenedor ul {
+            grid-template-columns: repeat(3, 1fr); 
+        } 
+    }
+}
+
+@media (min-width: 769px) {
+    .juan_pc, .izquierda_pc {
+        display: block;
+    }
+    .juan_movil, .izquierda_movil {
+        display: none;
+    }
 }
