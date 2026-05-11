@@ -329,10 +329,6 @@ a:active {
         margin: 0px 7px 0px 0px;
         margin-left: auto;
         width: 30px;
-        background-color: #ffffff;
-        border-radius: 5px;
-        align-items: center;
-        justify-content: center;
     }
     .principal h1 {
         font-size: 1.5em;
