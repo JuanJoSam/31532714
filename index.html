@@ -7,6 +7,29 @@
     <link rel="icon" sizes="192x192" href="/icon/cropped-logonuevo-192x192.png">
     <link rel="stylesheet" href="/css/style.css">
     <title>ATI[UCV]Log 2026-1</title>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+
+        if (!urlParams.has('lang')) {
+            window.history.replaceState({}, '', '?lang=ES');
+            urlParams = new URLSearchParams(window.location.search);
+        }
+        const idioma = urlParams.get('lang').toUpperCase();
+
+        const scriptConfig = document.createElement('script');
+        scriptConfig.type = 'text/javascript';
+        scriptConfig.src = `/conf/config${idioma}.json`;
+
+        scriptConfig.onload = function() {
+            const scriptMain = document.createElement('script');
+            scriptMain.type = 'text/javascript';
+            scriptMain.src = '/js/index.js';
+            document.head.appendChild(scriptMain);
+        };
+
+        document.head.appendChild(scriptConfig);
+    </script>
     
 </head>
 <body>
@@ -15,13 +38,17 @@
             <ul>
                 <li>
                     <a href="/index.html" class= "menu_principal">
-                        <h1 id = "logo">ATI<span>[UCV]</span>Log</h1>
+                        <h1 id = "logo">
+                            <span id = "logo_izq"></span>
+                            <span id = "logo_mid"></span>
+                            <span id = "logo_der"></span>
+                        </h1>
                     </a>
                 </li>
                 <li>
                     <form id = "formulario">
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre...">
-                        <button>Buscar</button>
+                        <input type="text" id="nombre" name="nombre" placeholder="">
+                        <button id = "boton_formulario"></button>
                     </form>
                 </li>
                 <li id = "profile">
@@ -34,16 +61,16 @@
         </nav>
     </header>
     <div class="principal">
-        <h1>Semestre 2026-1</h1>
+        <h1></h1>
 
         <div class ="contenedor">
             <ul>
                 <li class = "listado_perfiles">
-                    <a href="/31532714/profile.html" id="juan_redireccionar">
+                    <a href="" id="redireccionar">
                         <div class = "tarjeta">
-                            <img src="/31532714/31532714Big.jpg" alt="Juan Belisario Pc" class = "juan_pc">
-                            <img src="/31532714/31532714Small.jpeg" alt="Juan Belisario Movil" class = "juan_movil">
-                            <div class = "superpuesto"><p class = "name_profile_menu">Juan Belisario</p></div>
+                            <img src="" alt="Foto de Perfil Pc" class = "img_pc">
+                            <img src="" alt="Foto de Perfil Movil" class = "img_movil">
+                            <div class = "superpuesto"><p class = "name_profile_menu"></p></div>
                         </div>
                     </a>
                 </li>
@@ -51,8 +78,7 @@
         </div>
     </div>
     <footer>
-        <article>
-            Copyright © 2026 Escuela de computación - ATI. Todos los derechos reservados
+        <article id="derechos">
         </article>
     </footer>
 </body>

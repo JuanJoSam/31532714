@@ -30,6 +30,9 @@ nav ul {
     color: white;
     margin: 20px 15px 0px 30px;
     font-size: 45px;
+    display: flex;
+    justify-content: flex-start;            
+    width: 100%;                    
 }
 
 #profile {
@@ -75,9 +78,10 @@ li img {
     overflow: hidden;
 }
 
-span {
+#logo_mid {
     font-size: 20px;
     font-weight: normal;
+    padding-top: 25px;
 }
 
 nav ul li:last-child {
@@ -210,7 +214,7 @@ article, table {
     padding-left: 5px;
 }
 
-#juan_redireccionar {
+#redireccionar {
     display: contents;
     width: 100%;
     text-decoration: none; 
@@ -266,11 +270,11 @@ a:active {
     display: none;
 }
 
-.juan_pc, .juan_movil {
+.img_pc, .img_movil {
     object-fit: cover;
 }
 
-.juan_pc, .izquierda_pc {
+.img_pc, .izquierda_pc {
     display: none;
 }
 
@@ -289,7 +293,7 @@ a:active {
         font-size: 2em;
         margin: 1px 0px 0px 5px;
     }
-    #logo span {
+    #logo #logo_mid {
         font-size: 0.5em;
     }
     #formulario, #profile {
@@ -426,7 +430,7 @@ a:active {
         width: 20em;
         margin-bottom: 20px;
     }
-    .juan_movil, .juan_pc {
+    .img_movil, .img_pc {
         object-fit: cover;
     }
     @media (min-width: 1025px) and (max-width: 1201px) {
@@ -440,10 +444,10 @@ a:active {
 }
 
 @media (min-width: 769px) {
-    .juan_pc, .izquierda_pc {
+    .img_pc, .izquierda_pc {
         display: block;
     }
-    .juan_movil, .izquierda_movil {
+    .img_movil, .izquierda_movil {
         display: none;
     }
 }
