@@ -196,7 +196,7 @@ article, table {
 }
 
 #derecha {
-    margin: 1px 20px;
+    margin: 1px 10px;
 }
 
 .izquierda_movil, .izquierda_pc {
@@ -206,7 +206,7 @@ article, table {
     position: relative;
     width: 99%;
     height: 100%;
-    max-width: 100%;
+    max-width: 250px;
     max-height: 100%;
     object-fit: cover;
     object-position: center;
@@ -216,8 +216,8 @@ article, table {
 #izquierda2 {
     background-color: var(--main-color);
     width: 100%;           
-    max-width: 400px;      
-    height: 500px;
+    max-width: 251px;      
+    height: auto;
     overflow: hidden;
     position: relative;
 }
@@ -243,7 +243,7 @@ article, table {
     justify-content: space-between;
     background-color: #ffffff;
     width: 1245px;
-    height: 455px;
+    min-height: 455px;
     flex: 1;
     box-shadow: 0 4px 10px var(--grey-400);
     font-family: var(--primary-font), var(--condensed-font), var(--flex-font);
@@ -274,8 +274,8 @@ a:active {
 }
 
 #description {
-    /*font-family: Helvetica, Helvetica, sans-serif;*/
     font-weight: 300;
+    font-size: clamp(12px, 1.1vw, 25px);
 }
 
 #menu {
@@ -295,7 +295,17 @@ a:active {
         box-sizing: border-box;
     }
     .izquierda_movil {
+        max-width: 100vw;
         width: 100vw;
+        height: 100%;
+        object-fit: cover;
+        border-right: none;
+        border-bottom: 5px solid var(--main-color);
+    }
+    #izquierda2 {
+        max-width: 100vw;      
+        width: 100vw;          
+        height: 380px;         
     }
     header {
         padding-bottom: 0px;
@@ -315,7 +325,8 @@ a:active {
         display: flex;
         flex-direction: column;
         width: 100vw;
-        margin: auto;
+        margin: 0;
+        height: auto;       
     }
     footer {
         flex-direction: column;
@@ -323,20 +334,29 @@ a:active {
         border-top: 3px solid var(--grey-200);
     }
     footer article {
-        font-size: 0.5em;
+        width: 95vw;
+        font-size: clamp(15px, 3.5vw, 20px); 
+        line-height: 1.4; 
         text-align: center;
     }
     #description {
         width: 95vw;
-        font-size: 0.8em;
+        font-size: clamp(15px, 3.5vw, 1.5em); 
+        line-height: 1.3;      
+    }
+    .name_profile_menu {
+        width: 95vw;
+        font-size: clamp(20px, 3.5vw, 3em); 
+        line-height: 1.4;  
     }
     #tabla_profile {
         width: 95vw;
-        font-size: 0.8em;
+        font-size: clamp(15px, 3.5vw, 1.5em); 
+        line-height: 1.4;  
     }
     #contacto {
         width: 95vw;
-        font-size: 0.8em;
+        font-size: clamp(15px, 3.5vw, 20px); 
         padding-top: 10px;
         padding-bottom: 20px;
     }
@@ -395,15 +415,33 @@ a:active {
 @media (min-width: 769px) and (max-width: 1201px) {
     .contenedorprofile {
         width: 100vw;
-        height: auto;
+        height: 455px;
         display: flex;
+        align-items: stretch;
     }
     #izquierda2 {
         display: flex;
-    }
-    .izquierda_pc, .izquierda_movil {
-        height: 100%;
+        height: auto;
         width: 350px;
+        flex-shrink: 0;
+    }
+    .izquierda_pc {
+        display: block;
+        height: 100%;
+        width: 99%;
+        object-fit: cover;
+    }
+    #derecha {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        padding: 25px 30px;              
+        margin: 0;       
+        box-sizing: border-box;
+    }
+    #tabla_profile {
+        width: 100%;
+        border-collapse: collapse;
     }
     #logo {
         font-size: 3em;
@@ -416,11 +454,20 @@ a:active {
         width: 50vw;
     }
     #contacto {
-        margin-top: 1.1em;
-        margin-bottom: 1.4em;
+        margin: 0;
     }
     #name_profile {
-        font-size: 2.5em;
+        font-size: clamp(24px, 3vw, 36px);
+        padding-left: 0;
+        margin: 0;
+    }
+    #titulo_perfil {
+        margin: 0;
+    }
+    #description {
+        font-size: 1.1em;
+        line-height: 1.1;
+        margin: 10px 0;
     }
     #profile {
         margin-left: auto;
@@ -449,6 +496,9 @@ a:active {
         #description, #tabla_profile, #contacto {
             font-size: 1.2em;
         }
+        #name_profile {
+            font-size: clamp(28px, 3.5vw, 40px);
+        }
         .contenedor ul {
             grid-template-columns: repeat(3, 1fr); 
         } 
@@ -461,5 +511,27 @@ a:active {
     }
     .img_movil, .izquierda_movil {
         display: none;
+    }
+}
+
+@media (min-width: 1201px) {
+    #description {
+        font-size: 1.1em;
+        line-height: 1.2;
+        margin: 10px 0;
+    }
+
+    #derecha {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* <- Distribuye el espacio sobrante equitativamente */
+        flex: 1;         
+        padding: 25px 30px;              /* Margen interno para que el texto no pegue a los bordes */
+        margin: 0;       
+        box-sizing: border-box;
+    }
+
+    #derecha > :not(h1) {
+        margin: 0; 
     }
 }
