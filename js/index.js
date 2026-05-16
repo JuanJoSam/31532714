@@ -17,7 +17,7 @@ listadoPerfiles.forEach(profiles => {
     
     const estructuraTarjeta = `
         <li class = "listado_perfiles">
-            <a href="/profile.html?CI=${profiles.ci}" id="redireccionar">
+            <a href="/profile.html?lang=ES_CI=${profiles.ci}" id="redireccionar">
                 <div class = "tarjeta">
                         <img src="/${profiles.ci}/${profiles.ci}Big${profiles.image_ext}" alt="Foto de Perfil Pc" class = "img_pc">
                         <img src="/${profiles.ci}/${profiles.ci}Small${profiles.image_ext}" alt="Foto de Perfil Movil" class = "img_movil">

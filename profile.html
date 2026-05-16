@@ -7,6 +7,47 @@
     <link rel="icon" sizes="192x192" href="/icon/cropped-logonuevo-192x192.png">
     <link rel="stylesheet" href="/css/style.css">
     <title>Juan Belisario</title>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+
+        const cadena = urlParams.get('lang').toUpperCase();
+        let idioma = cadena.slice(0, 2);
+        let ci = cadena.slice(6);
+        //console.log(ci);
+
+        const scriptConfig = document.createElement('script');
+        scriptConfig.type = 'text/javascript';
+        scriptConfig.src = `/conf/config${idioma}.json`;
+
+        const scriptProfile = document.createElement('script');
+        scriptProfile.type = 'text/javascript';
+        scriptProfile.src = `/${ci}/profile.json`;
+
+        function cargarScript(ruta) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = ruta;
+                
+                script.onload = () => resolve();
+                script.onerror = () => reject(new Error(`Error al cargar: ${ruta}`));
+                
+                document.head.appendChild(script);
+            });
+        }
+
+        Promise.all([
+            cargarScript(`/conf/config${idioma}.json`),
+            cargarScript(`/${ci}/profile.json`)
+        ])
+        .then(() => {
+            return cargarScript('/js/profile.js');
+        })
+        .catch(error => {
+            console.error("Hubo un fallo crítico cargando los archivos:", error);
+        });
+    </script>
     
 </head>
 <body>
@@ -15,13 +56,17 @@
             <ul>
                 <li>
                     <a href="/index.html" class="menu_principal">
-                        <h1 id = "logo">ATI<span>[UCV]</span>Log</h1>
+                        <h1 id = "logo">
+                            <span id = "logo_izq"></span>
+                            <span id = "logo_mid"></span>
+                            <span id = "logo_der"></span>
+                        </h1>
                     </a>
                 </li>
                 <li>
                     <form id = "formulario">
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre...">
-                        <button>Buscar</button>
+                        <input type="text" id="nombre" name="nombre" placeholder="">
+                        <button id = "boton_formulario"></button>
                     </form>
                 </li>
                 <li id = "profile">
@@ -42,40 +87,40 @@
         </div>
         
         <div id = "derecha">
-            <h1 id = "name_profile"><b></b></h1>
+            <h1 ><b id = "name_profile"></b></h1>
             <p id = "description">
             </p>
             
             <table id = "tabla_profile">
                 <tr>
-                    <td>Mi color favorito es:</td>
-                    <td></td>
+                    <td id = "color_favorito"></td>
+                    <td id = "color_favorito_valor"></td>
                 </tr>
                 <tr>
-                    <td>Mi libro favorito es:</td>
-                    <td></td>
+                    <td id = "libro_favorito"></td>
+                    <td id = "libro_favorito_valor"></td>
                 </tr>
                 <tr>
-                    <td>Mi género músical favorito es:</td>
-                    <td></td>
+                    <td id = "musica_favorita"></td>
+                    <td id = "musica_favorita_valor"></td>
                 </tr>
                 <tr>
-                    <td>Mi videojuego favorito es:</td>
-                    <td></td>
+                    <td id = "videojuego_favorito"></td>
+                    <td id = "videojuego_favorito_valor"></td>
                 </tr>
                 <tr>
-                    <td><b>Lenguajes de programación aprendidos:</b></td>
-                    <td><b></b></td>
+                    <td><b id = "lenguajes_favoritos"></b></td>
+                    <td><b id = "lenguajes_favoritos_valor"></b></td>
                 </tr>
             </table>
 
-            <article id = "contacto">Si necesitan comunicarse conmigo me pueden escribir a: <b><a href="mailto:"></a></b></article>
+            <article id = "contacto"> <b><a href="mailto:"></a></b></article>
         </div>
     </section>
     
     <footer>
         <article>
-            Copyright © 2026 Escuela de computación - ATI. Todos los derechos reservados
+            <span id = "derechos"></span>
         </article>
     </footer>
 </body>
