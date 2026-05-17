@@ -57,3 +57,18 @@ document.getElementById('boton_formulario').addEventListener('click', function(e
     localStorage.setItem('searchQuery', valorInput);
     window.location.href = 'index.html'; 
 });
+
+//Parte 12
+let cont = 0;
+
+document.getElementById('menu').addEventListener('click', function() {
+    
+    document.querySelector('header').classList.toggle('abierto');
+    if (cont % 2 === 0) {
+        document.getElementsByClassName('texto_perfil')[0].innerHTML = `${config.profile}`;
+        document.getElementsByClassName('texto_perfil')[0].style.display = 'block';
+    } else {
+        document.getElementsByClassName('texto_perfil')[0].style.display = 'none';
+    }
+    cont++;
+});

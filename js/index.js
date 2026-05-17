@@ -54,3 +54,18 @@ if (estructuraTarjeta === `` && searchQuery !== null && searchQuery !== '') {
 document.getElementsByClassName('menu_principal')[0].addEventListener('click', function() {
     localStorage.removeItem('searchQuery');
 });
+
+//Parte 12
+let cont = 0;
+
+document.getElementById('menu').addEventListener('click', function() {
+    
+    document.querySelector('header').classList.toggle('abierto');
+    if (cont % 2 === 0) {
+        document.getElementsByClassName('texto_perfil')[0].innerHTML = `${config.profile}`;
+        document.getElementsByClassName('texto_perfil')[0].style.display = 'block';
+    } else {
+        document.getElementsByClassName('texto_perfil')[0].style.display = 'none';
+    }
+    cont++;
+});
