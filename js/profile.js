@@ -13,6 +13,7 @@ document.getElementById('color_favorito_valor').innerHTML = `${profile.color}`;
 document.getElementById('lenguajes_favoritos').innerHTML = `${config.language}` + ':';
 const lenguajesSeparados = profile.language.join(', ');
 document.getElementById('lenguajes_favoritos_valor').innerHTML = `${lenguajesSeparados}`;
+document.getElementById('encabezado').innerHTML = `${profile.name}`;
 
 if(profile.book.length > 1) {
     document.getElementById('libro_favorito').innerHTML = `${config.book[1]}` + ':';
@@ -46,3 +47,13 @@ imagenPC.src = `/${profile.ci}/${profile.ci}Big${profile.image_ext}`;
 
 const imagenMovil = document.querySelector('.izquierda_movil');
 imagenMovil.src = `/${profile.ci}/${profile.ci}Small${profile.image_ext}`;
+
+//Parte 11
+document.getElementById('boton_formulario').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const valorInput = document.getElementById('nombre').value.toLowerCase();
+
+    localStorage.setItem('searchQuery', valorInput);
+    window.location.href = 'index.html'; 
+});
