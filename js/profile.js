@@ -86,7 +86,7 @@ function inyectarDatosEnDOM() {
     const emailEdited = (profile.email) ? config.email.slice(0, -8) : config.email;
     document.getElementById('contacto').innerHTML = `${emailEdited}: <b><a href="mailto:${profile.email}">${profile.email}</a></b>`;
 
-    // OPTIMIZACIÓN DE RED: Descarga condicional de imágenes según Viewport activo
+    // Descarga condicional de imágenes según Viewport activo
     if (window.matchMedia("(min-width: 1025px)").matches) {
         const imagenPC = document.querySelector('.izquierda_pc');
         if (imagenPC) imagenPC.src = `/${profile.ci}/${profile.ci}Big${profile.image_ext}`;
