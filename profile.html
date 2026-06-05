@@ -8,46 +8,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <title id="encabezado"></title>
 
-    <script>
-        let urlParams = new URLSearchParams(window.location.search);
-
-        const cadena = urlParams.get('lang').toUpperCase();
-        let idioma = cadena.slice(0, 2);
-        let ci = cadena.slice(6);
-        //console.log(ci);
-
-        const scriptConfig = document.createElement('script');
-        scriptConfig.type = 'text/javascript';
-        scriptConfig.src = `/conf/config${idioma}.json`;
-
-        const scriptProfile = document.createElement('script');
-        scriptProfile.type = 'text/javascript';
-        scriptProfile.src = `/${ci}/profile.json`;
-
-        function cargarScript(ruta) {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = ruta;
-                
-                script.onload = () => resolve();
-                script.onerror = () => reject(new Error(`Error al cargar: ${ruta}`));
-                
-                document.head.appendChild(script);
-            });
-        }
-
-        Promise.all([
-            cargarScript(`/conf/config${idioma}.json`),
-            cargarScript(`/${ci}/profile.json`)
-        ])
-        .then(() => {
-            return cargarScript('/js/profile.js');
-        })
-        .catch(error => {
-            console.error("Hubo un fallo crítico cargando los archivos:", error);
-        });
-    </script>
+    <script src="/js/profile.js" defer></script>
+    
     
 </head>
 <body>
