@@ -19,7 +19,7 @@ ul {
     display: flex;
 }
 
-nav ul {
+#barra_menu ul {
     margin: 0;
     padding: 0;
     display: flex;
@@ -80,7 +80,7 @@ nav ul {
     width: fit-content;
 }
 
-#formulario input {
+#formulario #nombre {
     height: 100%;
     width: 300px;
     flex: 1;
@@ -92,7 +92,7 @@ nav ul {
     
 }
 
-#formulario button {
+#formulario #boton_formulario { /*form button*/
     background-color: var(--accent-color);
     color: white;
     border: none;
@@ -196,7 +196,12 @@ footer {
     justify-content: center;
 }
 
-div h1 {
+.principal #titulo_principal {
+    padding-left: 1em;
+    color: var(--grey-800);
+}
+
+#derecha #titulo_perfil {
     padding-left: 1em;
     color: var(--grey-800);
 }

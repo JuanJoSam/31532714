@@ -63,7 +63,11 @@ let cont = 0;
 
 document.getElementById('menu').addEventListener('click', function() {
     
+    // Modificación para el uso de this:
+    // Menú
+    console.log("Menú", this); // <-- Insertado para el análisis
     document.querySelector('header').classList.toggle('abierto');
+
     if (cont % 2 === 0) {
         document.getElementsByClassName('texto_perfil')[0].innerHTML = `${config.profile}`;
         document.getElementsByClassName('texto_perfil')[0].style.display = 'block';
@@ -72,3 +76,18 @@ document.getElementById('menu').addEventListener('click', function() {
     }
     cont++;
 });
+
+// Modificación para el uso de this:
+
+// Dentro del evento del botón de formulario
+document.getElementById('boton_formulario').addEventListener('click', function(e) {
+   
+    e.preventDefault();
+    console.log("Botón Formulario Profiles:", this); // <-- Insertado para el análisis
+    const valorInput = document.getElementById('nombre').value.toLowerCase();
+    localStorage.setItem('searchQuery', valorInput);
+    window.location.href = 'index.html'; 
+});
+
+// Contexto global
+console.log("Ámbito Global:", this); // <-- Insertado para el análisis
